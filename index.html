@@ -31,60 +31,33 @@
     <div class="movies">
       <div class="list-movies">
         <ul>
-          <!-- Ciclo for movies API -->
-          <li v-for="movie in movies">
-            <h3 class="title">Titolo: {{movie.title}}</h3>
-            <h3 class="original-title">Titolo originale: {{movie.original_title}}</h3>
+          <!-- Ciclo for movies/series API -->
+          <li v-for="element in all">
+            <h3 class="title">Titolo: {{element.title}}</h3>
+            <h3 class="original-title">Titolo originale: {{element.orig_title}}</h3>
             <h4 class="language">Lingua: </h4>
-              <span v-if="movie.original_language === 'en'">
+              <span 
+              v-if="element.language === 'en' || element.language === 'en-EN'">
               <img src="./img/en.png" alt="en">
               </span>
               
-              <span v-else-if="movie.original_language === 'it'">
+              <span 
+              v-else-if="element.language === 'it' || element.language === 'it-IT'">
               <img src="./img/it.png" alt="it">
               </span>
               
-              <span v-else>
-              <p>{{movie.original_language}}</p>
+              <span 
+              v-else>
+              <p>{{element.language}}</p>
               </span> 
 
               <!-- Votazione film -->
               <div class="votes"> Stars:
                 <i 
-                v-for="n in getStar(movie.vote_average)" 
+                v-for="n in getStar(element.rating)" 
                 class="fas fa-star"></i>
                 <i 
-                v-for="n in 5 - getStar(movie.vote_average)"
-                class="far fa-star"></i>
-              </div>
-          </li>
-        </ul>
-
-        <ul>
-          <!-- Ciclo for series API -->
-          <li v-for="serie in series">
-            <h3 class="title">Titolo: {{serie.name}}</h3>
-            <h3 class="original-title">Titolo originale: {{serie.name}}</h3>
-            <h4 class="language">Lingua: </h4>
-              <span v-if="serie.original_language === 'en'">
-              <img src="./img/en.png" alt="en">
-              </span>
-              
-              <span v-else-if="serie.original_language === 'it'">
-              <img src="./img/it.png" alt="it">
-              </span>
-              
-              <span v-else>
-              <p>{{serie.original_language}}</p>
-              </span> 
-
-              <!-- Votazione serie -->
-              <div class="votes"> Stars:
-                <i 
-                v-for="n in getStar(serie.vote_average)" 
-                class="fas fa-star"></i>
-                <i 
-                v-for="n in 5 - getStar(serie.vote_average)"
+                v-for="n in 5 - getStar(element.rating)"
                 class="far fa-star"></i>
               </div>
           </li>

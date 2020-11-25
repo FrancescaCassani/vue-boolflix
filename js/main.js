@@ -3,6 +3,7 @@ const app = new Vue({
   data: {
     movies: [],
     series: [],
+    all: [],
     searchBar: ''
   },
   created(){
@@ -10,7 +11,7 @@ const app = new Vue({
   },
   methods: {
     getFilter() {
-      //Call API
+      //Call API MOVIES
       axios.get('http://api.themoviedb.org/3/search/movie', {
           params: {
             api_key: 'c59940771aef20931e51d0c89086e5a5',
@@ -26,12 +27,22 @@ const app = new Vue({
         if(this.searchBar !== '') {
           this.movies = response.data.results;
         }
+
+        //Contenitore ALL movies + series
+        this.movies.forEach((movies) => {
+          this.all.push({
+            title: movies.title,
+            orig_title: movies.original_title,
+            rating: movies.vote_average,
+            language: movies.original_language
+          });
+        });
       })
       .catch(error => {
         console.log('Movie not found', error);
       });  
 
-      //Call API
+      //Call API TV SHOWS
       axios.get('http://api.themoviedb.org/3/search/tv', {
           params: {
             api_key: 'c59940771aef20931e51d0c89086e5a5',
@@ -47,6 +58,16 @@ const app = new Vue({
         if(this.searchBar !== '') {
           this.series = response.data.results;
         }
+
+        //Contenitore ALL movies + series
+        this.series.forEach((series) => {
+          this.all.push({
+            title: series.name,
+            orig_title: series.original_title,
+            rating: series.vote_average,
+            language: series.original_language
+          });
+        });
       })
       .catch(error => {
         console.log('Serie not found', error);
