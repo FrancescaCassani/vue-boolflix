@@ -24,13 +24,12 @@
       <div 
       @click="getFilter"
       class="btn"
-      > Enter </button>
+      > Enter </div>
     </div>
 
     <div class="movies">
       <div class="list-movies">
         <ul>
-
           <!-- Ciclo for movies API -->
           <li v-for="movie in movies">
             <h3 class="title">Titolo: {{movie.title}}</h3>
@@ -48,15 +47,45 @@
               <p>{{movie.original_language}}</p>
               </span> 
 
-            <!-- Votazione film -->
-            <div class="votes"> Stars:
-              <i 
-              v-for="n in getStar(movie.vote_average)" 
-              class="fas fa-star"></i>
-              <i 
-              v-for="n in 5 - getStar(movie.vote_average)"
-              class="far fa-star"></i>
-            </div>
+              <!-- Votazione film -->
+              <div class="votes"> Stars:
+                <i 
+                v-for="n in getStar(movie.vote_average)" 
+                class="fas fa-star"></i>
+                <i 
+                v-for="n in 5 - getStar(movie.vote_average)"
+                class="far fa-star"></i>
+              </div>
+          </li>
+        </ul>
+
+        <ul>
+          <!-- Ciclo for series API -->
+          <li v-for="serie in series">
+            <h3 class="title">Titolo: {{serie.title}}</h3>
+            <h3 class="original-title">Titolo originale: {{serie.original_title}}</h3>
+            <h4 class="language">Lingua: </h4>
+              <span v-if="serie.original_language === 'en'">
+              <img src="./img/en.png" alt="en">
+              </span>
+              
+              <span v-else-if="serie.original_language === 'it'">
+              <img src="./img/it.png" alt="it">
+              </span>
+              
+              <span v-else>
+              <p>{{serie.original_language}}</p>
+              </span> 
+
+              <!-- Votazione serie -->
+              <div class="votes"> Stars:
+                <i 
+                v-for="n in getStar(serie.vote_average)" 
+                class="fas fa-star"></i>
+                <i 
+                v-for="n in 5 - getStar(serie.vote_average)"
+                class="far fa-star"></i>
+              </div>
           </li>
         </ul>
       </div>

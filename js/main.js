@@ -65,17 +65,7 @@ const app = new Vue({
   }
 });
 
-/* <span v-if="movie.original_language === 'en'">
-<img src="./img/en.png" alt="en">
-</span>
 
-<span v-else-if="movie.original_language === 'it'">
-<img src="./img/it.png" alt="it">
-</span>
-
-<span v-else>
-<p>{{movie.original_language}}</p>
-</span> */
 
 
 
