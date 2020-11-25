@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
     <title>Boolflix</title>
 </head>
@@ -19,7 +18,7 @@
 
       <input 
       type="text"
-      v-model="searchMovie"
+      v-model="searchBar"
       @keyup.enter="getFilter">
 
       <div 
@@ -36,15 +35,18 @@
           <li v-for="movie in movies">
             <h3 class="title">Titolo: {{movie.title}}</h3>
             <h3 class="original-title">Titolo originale: {{movie.original_title}}</h3>
-            <h4 class="language">Lingua: 
-              <img 
-              src="./img/en.png" alt="">
-              <img 
-              src="./img/it.png" alt="">
+            <h4 class="language">Lingua: </h4>
+              <span v-if="movie.original_language === 'en'">
+              <img src="./img/en.png" alt="en">
+              </span>
               
-              <!-- {{movie.original_language}} -->
-
-            </h4>
+              <span v-else-if="movie.original_language === 'it'">
+              <img src="./img/it.png" alt="it">
+              </span>
+              
+              <span v-else>
+              <p>{{movie.original_language}}</p>
+              </span> 
 
             <!-- Votazione film -->
             <div class="votes"> Stars:
@@ -61,8 +63,7 @@
     </div>
   </div>
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="./js/main.js"></script>
-    
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js'></script>
+  <script src="./js/main.js"></script>
 </body>
 </html>
