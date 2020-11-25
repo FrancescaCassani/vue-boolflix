@@ -36,10 +36,18 @@
           <li v-for="movie in movies">
             <h3 class="title">Titolo: {{movie.title}}</h3>
             <h3 class="original-title">Titolo originale: {{movie.original_title}}</h3>
-            <h4 class="language">Lingua: {{movie.original_language}}</h4>
+            <h4 class="language">Lingua: 
+              <img 
+              src="./img/en.png" alt="">
+              <img 
+              src="./img/it.png" alt="">
+              
+              <!-- {{movie.original_language}} -->
+
+            </h4>
 
             <!-- Votazione film -->
-            <div class="votes"> Stars: 
+            <div class="votes"> Stars:
               <i 
               v-for="n in getStar(movie.vote_average)" 
               class="fas fa-star"></i>

@@ -3,6 +3,7 @@ const app = new Vue({
   data: {
     movies: [],
     searchMovie: '',
+    languages : ['en', 'it'],
   },
   created(){
 
@@ -26,7 +27,8 @@ const app = new Vue({
           this.movies = response.data.results;
         }
 
-        this.searchMovie = ''
+        this.searchMovie = '';
+
       })
       .catch(error => {
         console.log('Movie not found', error);

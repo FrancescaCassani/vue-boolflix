@@ -46,7 +46,7 @@ body {
   margin-top: 25px;
 }
 
-.list-movies  ul {
+.list-movies ul {
   margin-top: 40px;
   list-style: none;
 }
@@ -59,4 +59,9 @@ li {
   background: #000;
   border: 1px solid #000;
   border-radius: 15px;
+}
+
+.list-movies ul img {
+  max-width: 20px;
+  max-height: 20px;
 }
