@@ -25,13 +25,15 @@ const app = new Vue({
         if(this.searchMovie !== '') {
           this.movies = response.data.results;
         }
+
+        this.searchMovie = ''
       })
       .catch(error => {
         console.log('Movie not found', error);
       })
     },
-    getVote(vote) {
-      return vote / 2;
+    getStar(vote) {
+      return Math.ceil(vote / 2);
     }
   }
 });

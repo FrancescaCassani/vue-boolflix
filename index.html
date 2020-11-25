@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
@@ -21,22 +22,35 @@
       v-model="searchMovie"
       @keyup.enter="getFilter">
 
-      <button @click="getFilter"> Enter </button>
+      <div 
+      @click="getFilter"
+      class="btn"
+      > Enter </button>
     </div>
 
     <div class="movies">
       <div class="list-movies">
         <ul>
+
+          <!-- Ciclo for movies API -->
           <li v-for="movie in movies">
-            <h3 class="title">{{movie.title}}</h3>
-            <h3 class="original-title">{{movie.original_title}}</h3>
-            <h4 class="language">{{movie.original_language}}</h4>
+            <h3 class="title">Titolo: {{movie.title}}</h3>
+            <h3 class="original-title">Titolo originale: {{movie.original_title}}</h3>
+            <h4 class="language">Lingua: {{movie.original_language}}</h4>
+
+            <!-- Votazione film -->
+            <div class="votes"> Stars: 
+              <i 
+              v-for="n in getStar(movie.vote_average)" 
+              class="fas fa-star"></i>
+              <i 
+              v-for="n in 5 - getStar(movie.vote_average)"
+              class="far fa-star"></i>
+            </div>
           </li>
         </ul>
       </div>
     </div>
-
-
   </div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
