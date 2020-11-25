@@ -1,22 +1,41 @@
-
-const spotify = new Vue ({
-  el: "#spotify",
-    data: {
-
+const app = new Vue({
+  el: '#app',
+  data: {
+    movies: [],
+    searchMovie: '',
   },
-  created(){  
-      //Call API
-      axios.get('')
-      .then( result => {
-        console.log(result.data);
+  created(){
 
-      })
-      .catch( error => {
-        console.log(error);
-      });
   },
   methods: {
+    getFilter() {
+      //Call API
+      axios.get('http://api.themoviedb.org/3/search/movie', {
+          params: {
+            api_key: 'c59940771aef20931e51d0c89086e5a5',
+            query: this.searchMovie,
+            language: 'it-IT'
+         }
+      })
+      .then( response => {
+        //Log di verifica
+        console.log(response.data.results);
 
+        //Ragionamento ricerca
+        if(this.searchMovie !== '') {
+          this.movies = response.data.results;
+        }
+      })
+      .catch(error => {
+        console.log('Movie not found', error);
+      })
+    },
+    getVote(vote) {
+      return vote / 2;
     }
   }
 });
+
+
+
+

@@ -14,6 +14,29 @@
 
   <div id="app">
 
+    <div class="search">
+
+      <input 
+      type="text"
+      v-model="searchMovie"
+      @keyup.enter="getFilter">
+
+      <button @click="getFilter"> Enter </button>
+    </div>
+
+    <div class="movies">
+      <div class="list-movies">
+        <ul>
+          <li v-for="movie in movies">
+            <h3 class="title">{{movie.title}}</h3>
+            <h3 class="original-title">{{movie.original_title}}</h3>
+            <h4 class="language">{{movie.original_language}}</h4>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
   </div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
