@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
 
     <title>Boolflix</title>
@@ -62,8 +63,8 @@
         <ul>
           <!-- Ciclo for series API -->
           <li v-for="serie in series">
-            <h3 class="title">Titolo: {{serie.title}}</h3>
-            <h3 class="original-title">Titolo originale: {{serie.original_title}}</h3>
+            <h3 class="title">Titolo: {{serie.name}}</h3>
+            <h3 class="original-title">Titolo originale: {{serie.name}}</h3>
             <h4 class="language">Lingua: </h4>
               <span v-if="serie.original_language === 'en'">
               <img src="./img/en.png" alt="en">

@@ -10,12 +10,6 @@ const app = new Vue({
   },
   methods: {
     getFilter() {
-      this.getFilterMovie();
-      this.getFilterSeries();
-
-      this.search = '';
-    },
-    getFilterMovie() {
       //Call API
       axios.get('http://api.themoviedb.org/3/search/movie', {
           params: {
@@ -35,9 +29,8 @@ const app = new Vue({
       })
       .catch(error => {
         console.log('Movie not found', error);
-      })
-    },
-    getFilterSeries() {
+      });  
+
       //Call API
       axios.get('http://api.themoviedb.org/3/search/tv', {
           params: {
@@ -58,7 +51,10 @@ const app = new Vue({
       .catch(error => {
         console.log('Serie not found', error);
       })
+      
+      this.search = '';
     },
+
     getStar(vote) {
       return Math.ceil(vote / 2);
     }
