@@ -34,7 +34,8 @@ const app = new Vue({
             title: movies.title,
             orig_title: movies.original_title,
             rating: movies.vote_average,
-            language: movies.original_language
+            language: movies.original_language,
+            imgUrl: `https://image.tmdb.org/t/p/w342/${movies.poster_path}`
           });
         });
       })
@@ -65,7 +66,8 @@ const app = new Vue({
             title: series.name,
             orig_title: series.original_title,
             rating: series.vote_average,
-            language: series.original_language
+            language: series.original_language,
+            imgUrl: `https://image.tmdb.org/t/p/w342/${series.poster_path}`
           });
         });
       })
@@ -73,9 +75,12 @@ const app = new Vue({
         console.log('Serie not found', error);
       })
       
-      this.search = '';
+      //Pulizia 
+      this.searchBar = [];
+      this.movies = [];
+      this.series = [];
+      this.all = [];
     },
-
     getStar(vote) {
       return Math.ceil(vote / 2);
     }

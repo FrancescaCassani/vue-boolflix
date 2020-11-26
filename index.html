@@ -20,7 +20,8 @@
       <input 
       type="text"
       v-model="searchBar"
-      @keyup.enter="getFilter">
+      @keyup.enter="getFilter"
+      placeholder="Cerca un film o una serie tv">
 
       <div 
       @click="getFilter"
@@ -33,16 +34,21 @@
         <ul>
           <!-- Ciclo for movies/series API -->
           <li v-for="element in all">
+            <div>
+              <img :src="element.imgUrl" alt="">
+            </div>
             <h3 class="title">Titolo: {{element.title}}</h3>
             <h3 class="original-title">Titolo originale: {{element.orig_title}}</h3>
             <h4 class="language">Lingua: </h4>
               <span 
-              v-if="element.language === 'en' || element.language === 'en-EN'">
+              v-if="element.language === 'en' ||
+              element.language === 'en-EN'">
               <img src="./img/en.png" alt="en">
               </span>
               
               <span 
-              v-else-if="element.language === 'it' || element.language === 'it-IT'">
+              v-else-if="element.language === 'it' ||
+              element.language === 'it-IT'">
               <img src="./img/it.png" alt="it">
               </span>
               
