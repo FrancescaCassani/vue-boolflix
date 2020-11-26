@@ -6,9 +6,6 @@
   font-family: sans-serif;
 }
 
-#app {
-  height: 100vh;
-}
 
 /* HEADER */
 
@@ -22,14 +19,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #424242;
   position: absolute;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
-  height: 90px; 
 }
 
 .header-top .logo  {
@@ -54,13 +49,14 @@
   width: 250px;
   height: 25px;
   padding-left: 20px;
+  vertical-align: middle;
   font-size: 15px;
   box-shadow: none;
   outline: none;
   border: none;
   border-radius: 15px;
   color: #cd0918;
-  background: #000;
+  background: #181d2a;
 }
 
 .btn {
@@ -69,7 +65,7 @@
   text-align: center;
   vertical-align: middle;
   margin-left: 15px;
-  background: #000;
+  background: #181d2a;
   border: none;
   border-radius: 15px;
   font-size: 15px;
@@ -79,22 +75,49 @@
 }
 
 
-
-
-
-.list-movies ul {
+.collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 15px;
   list-style: none;
+  background: #181d2a;
+  min-height: 100vh;
 }
 
-.list-movies li {
-  margin: 25px;
-  padding: 15px;
+.collection .movies {
+  margin-top: 30px;
+  flex-basis: 150px;
+  margin: 15px 25px;
+  padding: 25px;
+  text-align: center;
+  color: white;
 }
 
-img .imgUrl,
-img .backdrop {
-  width: 50px;
-} 
+.collection .imgUrl {
+  min-height: 150px;
+}
+
+.collection .title {
+  font-size: 21px;
+  text-transform: uppercase;
+}
+
+.collection .original-title{
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.backdrop {
+  opacity: 0;
+}
+
+span img {
+  max-width: 20px;
+  max-height: 30px;
+}
+
+
 
 
 

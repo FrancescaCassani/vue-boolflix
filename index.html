@@ -36,16 +36,16 @@
         </div>
       </header>
 
-      <div class="movies">
+      <div>
         <div class="list-movies">
-          <ul>
+          <ul class="collection">
             <!-- Ciclo for movies/series API -->
-            <li v-for="element in all">
+            <li class="movies" v-for="element in all">
               <div>
                 <img class="imgUrl"
                 :src="element.imgUrl" alt="">
-                <img class="backdrop"
-                :src="element.backdrop" alt="">
+                <!-- <img class="backdrop"
+                :src="element.backdrop" alt=""> -->
   
               </div>
               <h3 class="title">Titolo: {{element.title}}</h3>
