@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
 
@@ -14,64 +13,73 @@
 
 
   <div id="app">
+    <div class="content">
+      <header class="header-top">
 
-    <div class="search">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="./img/netflix-icon-26.png" alt="">
+        </div>
+        
+        <!-- Search bar -->
+        <div class="search">
+          <div class="search-wrapper">
+            <input type="text"
+              v-model="searchBar"
+              @keyup.enter="getFilter"
+              placeholder="Cerca un film o una serie tv">
+          </div>
+  
+          <!-- Button -->
+          <div @click="getFilter"
+              class="btn"> Enter </div>
+        </div>
+      </header>
 
-      <input 
-      type="text"
-      v-model="searchBar"
-      @keyup.enter="getFilter"
-      placeholder="Cerca un film o una serie tv">
-
-      <div 
-      @click="getFilter"
-      class="btn"
-      > Enter </div>
-    </div>
-
-    <div class="movies">
-      <div class="list-movies">
-        <ul>
-          <!-- Ciclo for movies/series API -->
-          <li v-for="element in all">
-            <div>
-              <img class="imgUrl"
-              :src="element.imgUrl" alt="">
-              <img class="backdrop"
-              :src="element.backdrop" alt="">
-
-            </div>
-            <h3 class="title">Titolo: {{element.title}}</h3>
-            <h3 class="original-title">Titolo originale: {{element.orig_title}}</h3>
-            <h4 class="language">Lingua: </h4>
-              <span 
-              v-if="element.language === 'en' ||
-              element.language === 'en-EN'">
-              <img src="./img/en.png" alt="en">
-              </span>
-              
-              <span 
-              v-else-if="element.language === 'it' ||
-              element.language === 'it-IT'">
-              <img src="./img/it.png" alt="it">
-              </span>
-              
-              <span 
-              v-else>
-              <p>{{element.language}}</p>
-              </span> 
-
-              <!-- Votazione film -->
-              <div class="votes"> Stars:
-                <i 
-                v-for="n in getStar(element.rating)" 
-                class="fas fa-star"></i>
-                <i 
-                v-for="n in 5 - getStar(element.rating)"
-                class="far fa-star"></i>
+      <div class="movies">
+        <div class="list-movies">
+          <ul>
+            <!-- Ciclo for movies/series API -->
+            <li v-for="element in all">
+              <div>
+                <img class="imgUrl"
+                :src="element.imgUrl" alt="">
+                <img class="backdrop"
+                :src="element.backdrop" alt="">
+  
               </div>
-          </li>
-        </ul>
+              <h3 class="title">Titolo: {{element.title}}</h3>
+              <h3 class="original-title">Titolo originale: {{element.orig_title}}</h3>
+              <h4 class="language">Lingua: </h4>
+                <span 
+                v-if="element.language === 'en' ||
+                element.language === 'en-EN'">
+                <img src="./img/en.png" alt="en">
+                </span>
+                
+                <span 
+                v-else-if="element.language === 'it' ||
+                element.language === 'it-IT'">
+                <img src="./img/it.png" alt="it">
+                </span>
+                
+                <span 
+                v-else>
+                <p>{{element.language}}</p>
+                </span> 
+  
+                <!-- Votazione film -->
+                <div class="votes"> Stars:
+                  <i 
+                  v-for="n in getStar(element.rating)" 
+                  class="fas fa-star"></i>
+                  <i 
+                  v-for="n in 5 - getStar(element.rating)"
+                  class="far fa-star"></i>
+                </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

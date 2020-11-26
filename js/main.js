@@ -31,7 +31,7 @@ const app = new Vue({
         //Contenitore ALL movies + series
         this.movies.forEach((movies) => {
 
-          if(movie.poster_path != ''){
+          if(movies.poster_path != ''){
             this.all.push({
               title: movies.title,
               orig_title: movies.original_title,
