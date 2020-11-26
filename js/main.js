@@ -35,7 +35,9 @@ const app = new Vue({
             orig_title: movies.original_title,
             rating: movies.vote_average,
             language: movies.original_language,
-            imgUrl: `https://image.tmdb.org/t/p/w342/${movies.poster_path}`
+            imgUrl: `https://image.tmdb.org/t/p/w342/${movies.poster_path}`,
+            backdrop: `https://image.tmdb.org/t/p/w342/${movies.backdrop_path}`,
+            overview: `https://image.tmdb.org/t/p/w342/${movies.overview}`
           });
         });
       })
@@ -67,7 +69,9 @@ const app = new Vue({
             orig_title: series.original_title,
             rating: series.vote_average,
             language: series.original_language,
-            imgUrl: `https://image.tmdb.org/t/p/w342/${series.poster_path}`
+            imgUrl: `https://image.tmdb.org/t/p/w342/${series.poster_path}`,
+            backdrop: `https://image.tmdb.org/t/p/w342/${series.backdrop_path}`,
+            overview: `https://image.tmdb.org/t/p/w342/${series.overview}`
           });
         });
       })

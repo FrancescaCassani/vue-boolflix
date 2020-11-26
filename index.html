@@ -36,6 +36,8 @@
           <li v-for="element in all">
             <div>
               <img :src="element.imgUrl" alt="">
+              <img :src="element.backdrop" alt="">
+
             </div>
             <h3 class="title">Titolo: {{element.title}}</h3>
             <h3 class="original-title">Titolo originale: {{element.orig_title}}</h3>
