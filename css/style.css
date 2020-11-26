@@ -61,9 +61,10 @@ body {
   border-radius: 15px;
 }
 
-.list-movies ul img {
-  max-width: 20px;
-  max-height: 20px;
+
+img .imgUrl,
+img .backdrop {
+  width: 50px;
 }
 
 

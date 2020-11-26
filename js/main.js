@@ -30,15 +30,28 @@ const app = new Vue({
 
         //Contenitore ALL movies + series
         this.movies.forEach((movies) => {
-          this.all.push({
-            title: movies.title,
-            orig_title: movies.original_title,
-            rating: movies.vote_average,
-            language: movies.original_language,
-            imgUrl: `https://image.tmdb.org/t/p/w342/${movies.poster_path}`,
-            backdrop: `https://image.tmdb.org/t/p/w342/${movies.backdrop_path}`,
-            overview: `https://image.tmdb.org/t/p/w342/${movies.overview}`
-          });
+
+          if(movie.poster_path != ''){
+            this.all.push({
+              title: movies.title,
+              orig_title: movies.original_title,
+              rating: movies.vote_average,
+              language: movies.original_language,
+              imgUrl: `https://image.tmdb.org/t/p/w342/${movies.poster_path}`,
+              backdrop: `https://image.tmdb.org/t/p/w342/${movies.backdrop_path}`,
+              overview: `https://image.tmdb.org/t/p/w342/${movies.overview}`
+            });
+          } else {
+            this.all.push({
+              title: movies.title,
+              orig_title: movies.original_title,
+              rating: movies.vote_average,
+              language: movies.original_language,
+              imgUrl: '../img/not-found-.jpg',
+              backdrop: `https://image.tmdb.org/t/p/w342/${movies.backdrop_path}`,
+              overview: `https://image.tmdb.org/t/p/w342/${movies.overview}`
+            });
+          }
         });
       })
       .catch(error => {

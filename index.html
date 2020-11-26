@@ -35,8 +35,10 @@
           <!-- Ciclo for movies/series API -->
           <li v-for="element in all">
             <div>
-              <img :src="element.imgUrl" alt="">
-              <img :src="element.backdrop" alt="">
+              <img class="imgUrl"
+              :src="element.imgUrl" alt="">
+              <img class="backdrop"
+              :src="element.backdrop" alt="">
 
             </div>
             <h3 class="title">Titolo: {{element.title}}</h3>
