@@ -25,11 +25,33 @@
         
         <div class="contents">
           <h4>Home</h4>
-          <h4>Serie TV</h4>
-          <h4>Film</h4>
-          <h4>Original</h4>
-          <h4>Aggiunti di recente</h4>
-          <h4>La mia lista</h4>
+          <h4>Serie TV
+            <a> <i class="fas fa-angle-down"></i> </a>
+          </h4>
+          <h4>Film
+            <a> <i class="fas fa-angle-down"></i> </a>
+          </h4>
+          <h4>Original
+            <a> <i class="fas fa-angle-down"></i> </a>
+          </h4>
+          <h4>Aggiunti di recente
+            <a> <i @click="isOpen = !isOpen" 
+              class="fas fa-angle-down"
+              class="with-dropdwon"></i> </a>
+          </h4>
+          <h4>La mia lista
+            <a> <i @click="isOpen = !isOpen" 
+              class="fas fa-angle-down" 
+              class="with-dropdwon"></i> </a>
+          </h4>
+
+          <!-- Menu Nascosto -->
+          <transition name="fade" appear>
+            <div v-if="isOpen" class="dropdown-menu">
+              <a v-for="(info, i) in infoMyList"
+                 href="#"> {{info.title}} </a>
+            </div>
+          <transition>
         </div>
         
         <!-- Search bar -->
@@ -42,8 +64,9 @@
           </div>
   
           <!-- Button -->
-          <div @click="getFilter"
-              class="btn"> Enter </div>
+          <div @click="getFilter" class="btn"> 
+            <h4>Search</h4> 
+          </div>
         </div>
       </header>
 

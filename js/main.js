@@ -1,11 +1,22 @@
 const app = new Vue({
   el: '#app',
   data: {
+    searchBar: '',
     movies: [],
     series: [],
     all: [],
-    searchBar: '',
-    activeGenre: 'all'
+    infoMyList: [
+      {
+        title: 'I miei film',
+      },
+      {
+        title: 'I miei preferiti',
+      },
+      {
+        title: 'Consigliati',
+      },
+    ],
+    isOpen: false,
   },
   created(){
 
