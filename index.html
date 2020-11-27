@@ -61,8 +61,8 @@
                   src="https://www.altavod.com/assets/images/poster-placeholder.png"/>
                 <!-- <img class="backdrop"
                 :src="element.backdrop"/> -->
-                <div class="description"
-                :src="element.description"></div>
+                <div v-if="element.description"
+                class="description">{{element.description}}</div>
   
               </div>
               <h3 class="title">Titolo: {{element.title}}</h3>
