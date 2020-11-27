@@ -4,7 +4,8 @@ const app = new Vue({
     movies: [],
     series: [],
     all: [],
-    searchBar: ''
+    searchBar: '',
+    activeGenre: 'all'
   },
   created(){
 
@@ -29,29 +30,19 @@ const app = new Vue({
         }
 
         //Contenitore ALL movies + series
-        this.movies.forEach((movies) => {
-
-          if(movies.poster_path != ''){
-            this.all.push({
-              title: movies.title,
-              orig_title: movies.original_title,
-              rating: movies.vote_average,
-              language: movies.original_language,
-              imgUrl: `https://image.tmdb.org/t/p/w342/${movies.poster_path}`,
-              backdrop: `https://image.tmdb.org/t/p/w342/${movies.backdrop_path}`,
-              overview: `https://image.tmdb.org/t/p/w342/${movies.overview}`
-            });
-          } else {
-            this.all.push({
-              title: movies.title,
-              orig_title: movies.original_title,
-              rating: movies.vote_average,
-              language: movies.original_language,
-              imgUrl: '../img/not-found-.jpg',
-              backdrop: `https://image.tmdb.org/t/p/w342/${movies.backdrop_path}`,
-              overview: `https://image.tmdb.org/t/p/w342/${movies.overview}`
-            });
-          }
+        this.movies.forEach((movie) => {
+           
+          if(movie.poster_path !== '')
+          this.all.push({
+            title: movie.title,
+            orig_title: movie.original_title,
+            rating: movie.vote_average,
+            language: movie.original_language,
+            imgUrl: `https://image.tmdb.org/t/p/w342/${movie.poster_path}`,
+            genre: movie.genre_ids
+            // backdrop: `https://image.tmdb.org/t/p/w342/${movie.backdrop_path}`,
+            // description: `https://image.tmdb.org/t/p/w342/${movie.overview}`
+          });
         });
       })
       .catch(error => {
@@ -76,15 +67,17 @@ const app = new Vue({
         }
 
         //Contenitore ALL movies + series
-        this.series.forEach((series) => {
+        this.series.forEach((serie) => {
+          
           this.all.push({
-            title: series.name,
-            orig_title: series.original_title,
-            rating: series.vote_average,
-            language: series.original_language,
-            imgUrl: `https://image.tmdb.org/t/p/w342/${series.poster_path}`,
-            backdrop: `https://image.tmdb.org/t/p/w342/${series.backdrop_path}`,
-            overview: `https://image.tmdb.org/t/p/w342/${series.overview}`
+            title: serie.name,
+            orig_title: serie.original_title,
+            rating: serie.vote_average,
+            language: serie.original_language,
+            imgUrl: `https://image.tmdb.org/t/p/w342/${serie.poster_path}`,
+            genre: serie.genre_ids,
+            // backdrop: `https://image.tmdb.org/t/p/w342/${serie.backdrop_path}`,
+            // description: `https://image.tmdb.org/t/p/w342/${serie.overview}`
           });
         });
       })
@@ -100,7 +93,29 @@ const app = new Vue({
     },
     getStar(vote) {
       return Math.ceil(vote / 2);
-    }
+    },
+    // getGenres(){
+    //   axios.get('https://api.themoviedb.org/3/genre/movie/list', {
+    //       params: {
+    //           api_key: 'c59940771aef20931e51d0c89086e5a5',
+    //           language: 'it-IT',
+    //       }
+    //   })
+    //   .then(response => {
+    //       let list = response.data.genres;
+
+    //       if(this.activeGenre !== 'all') {
+    //         list = list.filter( (element) => {
+    //           return element.genres.toLowerCase() === this.activeGenre
+    //         });
+    //       }
+
+    //       this.list = all;
+    //   })
+    //   .catch(error =>{
+    //       console.log(error);
+    //   })
+    // }
   }
 });
 

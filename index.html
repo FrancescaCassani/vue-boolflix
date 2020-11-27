@@ -36,21 +36,34 @@
         </div>
       </header>
 
+          <!-- Selection genre -->
+      <!-- <div class="filter">Filter by genre
+        <select v-model="activeGenre" @change="getGenre">
+          <option value="all">All</option>
+        </select>
+      </div> -->
+
       <div>
         <div class="list-movies">
           <ul class="collection">
             <!-- Ciclo for movies/series API -->
             <li class="movies" v-for="element in all">
               <div>
-                <img class="imgUrl"
-                :src="element.imgUrl" alt="">
+                <img v-if="element.imgUrl"
+                class="imgUrl"
+                :src="element.imgUrl"/>
+
+                <img v-else
+                  src="https://www.altavod.com/assets/images/poster-placeholder.png"/>
                 <!-- <img class="backdrop"
                 :src="element.backdrop" alt=""> -->
+                <!-- <img class="overview"
+                :src="element.overview" alt=""> -->
   
               </div>
               <h3 class="title">Titolo: {{element.title}}</h3>
               <h3 class="original-title">Titolo originale: {{element.orig_title}}</h3>
-              <h4 class="language">Lingua: </h4>
+              <h4 class="language"></h4>
                 <span 
                 v-if="element.language === 'en' ||
                 element.language === 'en-EN'">
