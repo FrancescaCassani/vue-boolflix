@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="./css/style.css">
 
     <title>Boolflix</title>
@@ -19,6 +21,15 @@
         <!-- Logo -->
         <div class="logo">
           <img src="./img/netflix-icon-26.png" alt="">
+        </div>
+        
+        <div class="contents">
+          <h4>Home</h4>
+          <h4>Serie TV</h4>
+          <h4>Film</h4>
+          <h4>Original</h4>
+          <h4>Aggiunti di recente</h4>
+          <h4>La mia lista</h4>
         </div>
         
         <!-- Search bar -->
@@ -36,13 +47,6 @@
         </div>
       </header>
 
-          <!-- Selection genre -->
-      <!-- <div class="filter">Filter by genre
-        <select v-model="activeGenre" @change="getGenre">
-          <option value="all">All</option>
-        </select>
-      </div> -->
-
       <div>
         <div class="list-movies">
           <ul class="collection">
@@ -56,9 +60,9 @@
                 <img v-else
                   src="https://www.altavod.com/assets/images/poster-placeholder.png"/>
                 <!-- <img class="backdrop"
-                :src="element.backdrop" alt=""> -->
-                <img class="description"
-                :src="element.description" alt="">
+                :src="element.backdrop"/> -->
+                <div class="description"
+                :src="element.description"></div>
   
               </div>
               <h3 class="title">Titolo: {{element.title}}</h3>
@@ -82,7 +86,7 @@
                 </span> 
   
                 <!-- Votazione film -->
-                <div class="votes"> Stars:
+                <div class="votes">
                   <i 
                   v-for="n in getStar(element.rating)" 
                   class="fas fa-star"></i>

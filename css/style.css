@@ -3,13 +3,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #fff;
-  background: #1e2d3b;
+  background: linear-gradient(to bottom, rgba(42,7,9,1) 0%, rgba(177,28,36,1) 46%, rgba(184,6,15,1) 100%);
 }
 
 /* HEADER */
@@ -26,27 +25,16 @@ img {
 
 /* HEADER LOGO */
 header {
-  max-height: 100px;
   display: flex;
   justify-content: space-between;
   align-content: center;
-  background: #2e3a46;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  width: 100%;
 }
 
-/* .header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-} */
-
-.header-top .logo  {
-  flex-grow: 1;
+.header-top .logo {
+  flex-basis: 10%;
 }
 
 .header-top .logo img {
@@ -54,13 +42,23 @@ header {
   max-height: 60px;
 }
 
-
 .search {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-basis: 30%;
   margin-right: 15px;
+}
+
+.contents {
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  flex-basis: 60%;
+}
+
+.contents h4 {
+  padding: 10px;
 }
 
 .search input {
@@ -73,8 +71,8 @@ header {
   outline: none;
   border: none;
   border-radius: 15px;
-  color: #fff;
-  background:#cd0918;
+  color: rgb(219, 26, 26);
+  background: rgb(243, 236, 236);
 }
 
 .btn {
@@ -87,16 +85,9 @@ header {
   border-radius: 15px;
   font-size: 15px;
   cursor: pointer;
-  background:#cd0918;
-  color: #fff;
+  background: rgb(243, 236, 236);
+  color: rgb(219, 26, 26);
   line-height: 25px;
-}
-
-/* FILTRO GENERE */
-.filter {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 13px;
 }
 
 
@@ -110,35 +101,27 @@ header {
 }
 
 .collection .movies {
-  flex-basis: 200px;
+  flex-basis: 250px;
   margin: 15px 25px;
   padding: 25px;
-  background: #2e3a46;
   text-align: center;
 }
 
 .collection .imgUrl {
-  min-height: 150px;
+  min-height: 180px;
 }
 
 .collection .title {
-  font-size: 21px;
+  font-size: 18px;
   text-transform: uppercase;
   margin: 8px 0;
 }
 
 .collection .original-title{
   margin-bottom: 8px;
-  font-size: 17px;
+  font-size: 15px;
 }
 
-.collection.genre {
-  font-size: 14px;
-}
-
-.backdrop {
-  opacity: 0;
-}
 
 span img {
   max-width: 20px;
